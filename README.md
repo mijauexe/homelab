@@ -8,6 +8,7 @@ Docker compose stacks for the home server. Pulled from a CasaOS install on
 ```
 services/                      # one folder per service, each independently `docker compose up -d`-able
   cloudflare-ddns/
+  homarr/
   jellyfin/
   nginx-proxy-manager/
   overseerr/
@@ -43,6 +44,7 @@ docker compose up -d
 Services that need a `.env`:
 - `vaultwarden/` — `ADMIN_TOKEN` (argon2id hash)
 - `cloudflare-ddns/` — `CLOUDFLARE_API_TOKEN`, `DOMAINS`
+- `homarr/` — `SECRET_ENCRYPTION_KEY` (generate with `openssl rand -hex 32`)
 
 Most other services honour optional `PUID`, `PGID`, and `TZ` overrides via
 shell environment; defaults are `1000 / 1000 / Europe/Zagreb`.
