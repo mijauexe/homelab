@@ -1,0 +1,14 @@
+name: overseerr
+services:
+  overseerr:
+    image: linuxserver/overseerr:1.33.2
+    container_name: overseerr
+    restart: unless-stopped
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Europe/Zagreb}
+    ports:
+      - "5055:5055"
+    volumes:
+      - /srv/appdata/overseerr:/config

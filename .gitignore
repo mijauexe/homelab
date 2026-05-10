@@ -1,0 +1,12 @@
+# Real secrets live in .env (per-service) and stay out of git.
+# Templates ship as .env.example, which IS committed.
+.env
+.env.local
+.env.*
+!.env.example
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp

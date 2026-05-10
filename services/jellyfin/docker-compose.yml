@@ -1,0 +1,20 @@
+name: jellyfin
+services:
+  jellyfin:
+    image: linuxserver/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Europe/Zagreb}
+    devices:
+      - /dev/dri:/dev/dri
+    ports:
+      - "8097:8096"
+      - "8921:8920"
+      - "7359:7359/udp"
+      - "1900:1900/udp"
+    volumes:
+      - /srv/appdata/jellyfin:/config
+      - /mnt/media:/Media

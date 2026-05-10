@@ -1,0 +1,11 @@
+name: cloudflare-ddns
+services:
+  cloudflare-ddns:
+    image: favonia/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    restart: always
+    environment:
+      CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN}
+      DOMAINS: ${DOMAINS}
+      IP6_PROVIDER: none
+      PROXIED: "true"

@@ -1,0 +1,16 @@
+name: radarr
+services:
+  radarr:
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    restart: unless-stopped
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Europe/Zagreb}
+    ports:
+      - "7878:7878"
+    volumes:
+      - /srv/appdata/radarr:/config
+      - /mnt/media/movies:/movies
+      - /mnt/media:/downloads
