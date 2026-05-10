@@ -10,6 +10,8 @@ services:
       TZ: ${TZ:-Europe/Zagreb}
     devices:
       - /dev/dri:/dev/dri
+    group_add:
+      - "991"   # host render group, so abc can access /dev/dri/renderD128 for VAAPI
     ports:
       - "8097:8096"
       - "8921:8920"
@@ -17,4 +19,6 @@ services:
       - "1900:1900/udp"
     volumes:
       - /srv/appdata/jellyfin:/config
-      - /mnt/media:/Media
+      - /mnt/media/movies:/Media/Movies
+      - /mnt/media/tv:/Media/TVShows
+      - /mnt/media/music:/Media/Music
